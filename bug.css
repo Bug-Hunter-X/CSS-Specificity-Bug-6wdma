@@ -1,0 +1,19 @@
+The CSS specificity rules can lead to unexpected styling outcomes.  For instance, consider the following scenario:
+
+```css
+#myElement {
+  color: blue;
+}
+
+.myElement {
+  color: red;
+}
+
+#myElement.myElement {
+  color: green;
+}
+
+<div id="myElement" class="myElement"></div>
+```
+
+The element will be green because the ID selector has higher specificity than the class selector, but the combined selector (`#myElement.myElement`) has higher specificity than both of the individual selectors.  This is not always immediately obvious and can cause significant frustration when troubleshooting.
